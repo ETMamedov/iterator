@@ -18,7 +18,6 @@ public class Randoms implements Iterable<Integer> {
         return new Iterator<>() {
 
             int val;
-            boolean isList = true;
 
             @Override
             public Integer next() {
@@ -28,12 +27,9 @@ public class Randoms implements Iterable<Integer> {
             @Override
             public boolean hasNext() {
                 if (min > max) throw new IllegalArgumentException("Invalid range");
-                while (true) {
-                    val = min + Math.abs(random.nextInt()) % (max - min + 1);
-                    return true;
-                }
+                val = min + Math.abs(random.nextInt()) % (max - min + 1);
+                return true;
             }
-
         };
     }
 }
